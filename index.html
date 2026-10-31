@@ -33,14 +33,62 @@
         Glory Elizabeth Akoto
         </a>
         <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-        <a href="#engineering" class="hover:text-brandAccent transition">AI & Engineering</a>
-        <a href="#gallery" class="hover:text-brandAccent transition">Fine Art Gallery</a>
-        <a href="#about" class="hover:text-brandAccent transition">Founder Story</a>
+            <a href="#engineering" class="hover:text-brandAccent transition">AI & Engineering</a>
+            <a href="#gallery" class="hover:text-brandAccent transition">Fine Art Gallery</a>
+            <a href="#about" class="hover:text-brandAccent transition">Founder Story</a>
         </nav>
         <div class="flex items-center space-x-4">
-        <a href="mailto:gloryelizabethakoto@gmail.com" class="bg-brandAccent hover:bg-brandAccentHover text-slate-950 font-semibold px-4 py-2 rounded-lg text-sm transition shadow-lg shadow-teal-500/10">
-            Get in Touch
-        </a>
+            <a href="https://github.com/GloryEli" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition text-lg">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/gloryakoto" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition text-lg">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/233544991601" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact" class="text-slate-400 hover:text-emerald-400 transition text-lg">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <!-- Email Button
+            <a href="mailto:gloryelizabethakoto@gmail.com" class="inline-flex items-center gap-1.5 bg-brandAccent hover:bg-brandAccentHover text-slate-950 font-semibold px-3.5 py-2 rounded-lg text-xs transition shadow-md shadow-teal-500/10">
+                <i class="fa-regular fa-envelope text-sm"></i> Email
+            </a> -->
+
+            <!-- Email Action Button -->
+                <button onclick="handleEmailClick(this)" class="inline-flex items-center gap-1.5 bg-brandAccent hover:bg-brandAccentHover text-slate-950 font-semibold px-4 py-2 rounded-lg text-xs transition shadow-md shadow-teal-500/10 cursor-pointer">
+                <i class="fa-regular fa-envelope text-sm"></i> <span id="emailText">Email</span>
+                </button>
+
+                <script>
+                function handleEmailClick(btn) {
+                    const email = "gloryelizabethakoto@gmail.com";
+                    let appOpened = false;
+
+                    // Listen for blur event to detect if an email application opened
+                    const onBlur = () => {
+                    appOpened = true;
+                    };
+                    window.addEventListener("blur", onBlur, { once: true });
+
+                    // Trigger standard mailto action
+                    window.location.href = `mailto:${email}`;
+
+                    // Fallback: If focus hasn't shifted after 300ms, copy to clipboard
+                    setTimeout(() => {
+                    window.removeEventListener("blur", onBlur);
+                    
+                    // Copy to clipboard fallback
+                    navigator.clipboard.writeText(email).then(() => {
+                        const textSpan = document.getElementById("emailText");
+                        textSpan.innerText = "Email Copied!";
+                        setTimeout(() => {
+                        textSpan.innerText = "Email";
+                        }, 2500);
+                    }).catch(err => {
+                        console.error("Could not copy email: ", err);
+                    });
+                    }, 300);
+                }
+                </script>
         </div>
     </div>
 </header>
@@ -135,15 +183,15 @@
           <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-slate-700 transition">
             <div class="flex items-center justify-between mb-4">
               <span class="bg-teal-500/10 text-brandAccent border border-teal-500/20 text-xs px-3 py-1 rounded-full font-semibold">Featured Live App</span>
-              <div class="flex items-center space-x-3 text-sm">
-                <span class="text-slate-500 flex items-center gap-1 font-semibold" aria-label="Live demo link not configured">
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Live Demo
-                </span>
-                <span class="text-slate-700">|</span>
-                <span class="text-slate-500 flex items-center gap-1" aria-label="GitHub link not configured">
-                  <i class="fa-brands fa-github text-xs"></i> GitHub
-                </span>
-              </div>
+                <div class="flex items-center space-x-3 text-sm">
+                    <a href="https://academic-bloom.onrender.com" target="_blank" rel="noopener noreferrer" class="text-brandAccent hover:underline flex items-center gap-1 font-semibold">
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Live App
+                    </a>
+                    <span class="text-slate-700">|</span>
+                    <a href="https://github.com/GloryEli/AcademicBloom" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white flex items-center gap-1">
+                        <i class="fa-brands fa-github text-xs"></i> GitHub
+                    </a>
+                </div>  
             </div>
 
             <h3 class="text-2xl font-bold text-white mb-2">Academic Bloom</h3>
@@ -181,7 +229,9 @@
                 </div>
                 <p class="text-xs font-semibold text-slate-400 mb-2">
                   Liz Inspired Technologies 
-                  <span class="text-slate-500 ml-1" aria-label="Website link not configured"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Visit Website</span>
+                    <span class="ml-2 text-[10px] font-medium text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">
+                        <i class="fa-solid fa-clock text-[9px] mr-1"></i> Website Launching Soon
+                    </span>
                 </p>
                 <p class="text-xs text-slate-400 leading-relaxed">
                   Lead full-stack AI development, building data processing tools and intelligent software solutions. Architect scalable machine learning workflows and production backend deployments.
