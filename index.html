@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -32,63 +32,56 @@
         <a href="#hero" class="text-xl font-bold tracking-tight text-white hover:text-brandAccent transition">
         Glory Elizabeth Akoto
         </a>
+    <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
             <a href="#about" class="hover:text-brandAccent transition">Founder Story</a>
-            <a href="#tech" class="hover:text-brandAccent transition">AI Engineering</a>
+            <a href="#engineering" class="hover:text-brandAccent transition">AI Engineering</a>
+            <a href="#skills" class="hover:text-brandAccent transition">Skills Matrix</a>
             <a href="#gallery" class="hover:text-brandAccent transition">Fine Art Gallery</a>
-            
         </nav>
-        <div class="flex items-center space-x-4">
-            <a href="https://github.com/GloryEli" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition text-lg">
+
+        <!-- Desktop Contact Actions -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="https://github.com/GloryEli" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-slate-400 hover:text-white transition text-lg">
                 <i class="fa-brands fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/gloryakoto" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition text-lg">
+            <a href="https://linkedin.com/in/gloryakoto" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-slate-400 hover:text-white transition text-lg">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
-            <!-- WhatsApp Icon -->
             <a href="https://wa.me/233544991601" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Contact" class="text-slate-400 hover:text-emerald-400 transition text-lg">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
 
-            <!-- Email Action Button -->
-                <button onclick="handleEmailClick(this)" class="inline-flex items-center gap-1.5 bg-brandAccent hover:bg-brandAccentHover text-slate-950 font-semibold px-4 py-2 rounded-lg text-xs transition shadow-md shadow-teal-500/10 cursor-pointer">
-                <i class="fa-regular fa-envelope text-sm"></i> <span id="emailText">Email</span>
-                </button>
+            <a href="mailto:gloryelizabethakoto@gmail.com" class="inline-flex items-center gap-1.5 bg-brandAccent hover:bg-brandAccentHover text-slate-950 font-semibold px-4 py-2 rounded-lg text-xs transition shadow-md shadow-teal-500/10">
+                <i class="fa-regular fa-envelope text-sm"></i> Email
+            </a>
 
-                <script>
-                function handleEmailClick(btn) {
-                    const email = "gloryelizabethakoto@gmail.com";
-                    let appOpened = false;
 
-                    // Listen for blur event to detect if an email application opened
-                    const onBlur = () => {
-                    appOpened = true;
-                    };
-                    window.addEventListener("blur", onBlur, { once: true });
+        </div>
+        <!-- Mobile Hamburger Button -->
+        <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-slate-300 hover:text-white text-xl focus:outline-none">
+        <i class="fa-solid fa-bars" id="menuIcon"></i>
+        </button>
+    </div>
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 py-6 space-y-4">
+        <a href="#about" class="mobile-link block text-slate-300 hover:text-brandAccent font-medium text-sm">Founder Story</a>
+        <a href="#engineering" class="mobile-link block text-slate-300 hover:text-brandAccent font-medium text-sm">AI Engineering</a>
+        <a href="#skills" class="mobile-link block text-slate-300 hover:text-brandAccent font-medium text-sm">Skills Matrix</a>
+        <a href="#gallery" class="mobile-link block text-slate-300 hover:text-brandAccent font-medium text-sm">Fine Art Gallery</a>
 
-                    // Trigger standard mailto action
-                    window.location.href = `mailto:${email}`;
-
-                    // Fallback: If focus hasn't shifted after 300ms, copy to clipboard
-                    setTimeout(() => {
-                    window.removeEventListener("blur", onBlur);
-                    
-                    // Copy to clipboard fallback
-                    navigator.clipboard.writeText(email).then(() => {
-                        const textSpan = document.getElementById("emailText");
-                        textSpan.innerText = "Email Copied!";
-                        setTimeout(() => {
-                        textSpan.innerText = "Email";
-                        }, 2500);
-                    }).catch(err => {
-                        console.error("Could not copy email: ", err);
-                    });
-                    }, 300);
-                }
-                </script>
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/GloryEli" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-lg"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/gloryakoto" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-lg"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://wa.me/233544991601" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-emerald-400 text-lg"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <a href="mailto:gloryelizabethakoto@gmail.com" class="inline-flex items-center gap-1.5 bg-brandAccent hover:bg-brandAccentHover text-slate-950 font-semibold px-3 py-1.5 rounded-lg text-xs transition">
+                <i class="fa-regular fa-envelope"></i> Email
+            </a>
         </div>
     </div>
-</header>
+  </header>
 
   <!-- ================= HERO SECTION ================= -->
   <section id="hero" class="relative bg-gradient-to-b from-brandDark via-brandNav to-slate-900 pt-20 pb-16 px-6 border-b border-slate-800">
@@ -132,7 +125,7 @@
 
       <!-- DUAL-PATH GATEWAY BUTTONS -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-        <a href="#tech" class="group relative bg-slate-800 border border-slate-700 hover:border-brandAccent rounded-2xl p-6 text-left transition-all duration-300 hover:-translate-y-1 shadow-xl">
+        <a href="#engineering" class="group relative bg-slate-800 border border-slate-700 hover:border-brandAccent rounded-2xl p-6 text-left transition-all duration-300 hover:-translate-y-1 shadow-xl">
             <div class="w-10 h-10 rounded-lg bg-teal-500/10 text-brandAccent flex items-center justify-center text-lg mb-4 group-hover:bg-brandAccent group-hover:text-slate-950 transition">
                 <i class="fa-solid fa-code"></i>
             </div>
@@ -167,7 +160,7 @@
       <div class="lg:col-span-5 flex flex-col items-center">
         <div class="relative w-full max-w-sm aspect-square rounded-3xl overflow-hidden border-2 border-slate-800 bg-slate-900 shadow-2xl group">
           <!-- Profile Image -->
-          <img src="assets/profile.jpg" alt="Glory Elizabeth Akoto" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'">
+          <img src="assets/profile.jpg" alt="Glory Elizabeth Akoto" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'">
           
           <!-- Subtle Gradient Overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
@@ -300,7 +293,7 @@
               <div class="relative pl-6 border-l-2 border-brandAccent">
                 <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
                   <h4 class="text-base font-bold text-white">Full-Time AI Engineer & Founder</h4>
-                  <span class="text-xs text-brandAccent font-semibold bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">2 Years – Present</span>
+                  <span class="text-xs text-brandAccent font-semibold bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20">2 Years to Present</span>
                 </div>
                 <p class="text-xs font-semibold text-slate-400 mb-2">
                   Liz Inspired Technologies 
@@ -365,23 +358,46 @@
           </div>
 
           <!-- SKILLS MATRIX -->
-          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div id="skills" class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
             <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
               <i class="fa-solid fa-microchip text-brandAccent"></i> Technical Skill Matrix
             </h3>
             
             <div class="space-y-4 text-xs">
               <div>
-                <div class="font-semibold text-slate-300 mb-1">Languages & Frameworks</div>
-                <div class="text-slate-400">Python, Django, React, JavaScript, HTML5/CSS3, SQL, Git</div>
+                <div class="font-semibold text-slate-300 mb-1">Software Engineering</div>
+                <div class="text-slate-400">Full-stack development, backend development, system architecture</div>
               </div>
               <div>
-                <div class="font-semibold text-slate-300 mb-1">AI & Data Analytics</div>
-                <div class="text-slate-400">Data Pipelines, Statistical Modeling, Machine Learning</div>
+                <div class="font-semibold text-slate-300 mb-1">AI & Analytics</div>
+                <div class="text-slate-400">Data pipelines, statistical modeling, machine learning, educational analytics</div>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-300 mb-1">Delivery & Problem Solving</div>
+                <div class="text-slate-400">Production deployment, database optimization, applied mathematics</div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- ================= TECHNICAL STACK MATRIX ================= -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+              <i class="fa-solid fa-microchip text-brandAccent"></i> Technical Stack Matrix
+            </h3>
+
+            <div class="space-y-4 text-xs">
+              <div>
+                <div class="font-semibold text-slate-300 mb-1">Languages & Core</div>
+                <div class="text-slate-400">Python, JavaScript (ES6+), HTML5 / CSS3, SQL</div>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-300 mb-1">Frameworks & Web</div>
+                <div class="text-slate-400">Django, React, Tailwind CSS, WhiteNoise, REST APIs</div>
               </div>
               <div>
                 <div class="font-semibold text-slate-300 mb-1">Tools & Deployment</div>
-                <div class="text-slate-400">VS Code, WhiteNoise, Render, GitHub</div>
+                <div class="text-slate-400">Git & GitHub, VS Code, Virtual Envs, Render, GitHub Pages</div>
               </div>
             </div>
           </div>
@@ -500,5 +516,29 @@
     </div>
   </footer>
 
+  <script>
+    // Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+          menuIcon.className = 'fa-solid fa-bars';
+        } else {
+          menuIcon.className = 'fa-solid fa-xmark';
+        }
+      });
+
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.className = 'fa-solid fa-bars';
+        });
+      });
+    }
+  </script>
 </body>
 </html>
